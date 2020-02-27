@@ -1,23 +1,41 @@
 <template>
-	<div>
-		<b-button @click="onClick">
-			{{ text }}
-		</b-button>
-	</div>
+  <b-button :class="customClass" @click="onClick">
+    {{ text }}
+  </b-button>
 </template>
 
 <script>
 export default {
-	name: "Button",
-	props: {
-		text: {
-			type: String,
-			required: true
-		},
-		onClick: {
-			type: Function,
-			default: () => {}
-		}
-	}
+  name: "Button",
+  props: {
+    customClass: {
+      type: String,
+      default: ""
+    },
+    text: {
+      type: String,
+      required: true
+    },
+    onClick: {
+      type: Function,
+      default: () => {}
+    }
+  }
 };
 </script>
+
+<style lang="scss" scoped>
+.card-button {
+  background: whitesmoke;
+  color: black;
+  margin-left: 6px;
+  font-size: 14px;
+  padding: 6px;
+
+  &--completed {
+  }
+
+  &--missed {
+  }
+}
+</style>

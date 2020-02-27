@@ -5,4 +5,4 @@ export const showToast = (context, variant, title, description) => {
     solid: true,
     autoHideDelay: 2000
   });
-}
+};

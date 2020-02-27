@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    redirect: { name: 'AllTasks' }
+    redirect: { name: "AllTasks" }
   },
   {
     path: "/all",
@@ -32,7 +32,7 @@ const routes = [
     path: "/pending",
     name: "PendingTasks",
     component: () => import("../views/PendingTasks.vue")
-  },
+  }
 ];
 
 const router = new VueRouter({

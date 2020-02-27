@@ -1,22 +1,22 @@
 <template>
-	<div class="all-tasks">
-		<AddToDoItem />
-		<TasksContainer tasksToShow="All" />
-	</div>
+  <div class="all-tasks">
+    <AddTask />
+    <TasksContainer tasksToShow="All" />
+  </div>
 </template>
 
 <script>
-import AddToDoItem from "@/components/AddToDoItem";
+import AddTask from "@/components/AddTask";
 import TasksContainer from "@/components/TasksContainer";
 
 export default {
-	name: "AllTasks",
-	components: {
-		AddToDoItem,
-		TasksContainer
-	},
-	data() {
-		return {};
-	}
+  name: "AllTasks",
+  components: {
+    AddTask,
+    TasksContainer
+  },
+  data() {
+    return {};
+  }
 };
 </script>
