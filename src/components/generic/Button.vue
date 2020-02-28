@@ -1,5 +1,5 @@
 <template>
-  <b-button :class="customClass" @click="onClick">
+  <b-button :class="`button ${customClass}`" @click="onClick">
     {{ text }}
   </b-button>
 </template>
@@ -25,9 +25,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/styles/colors";
+
+.button {
+  background: $main-color;
+  border-color: $siren;
+}
+
 .card-button {
-  background: whitesmoke;
-  color: black;
+  background: $spring-wood;
+  border-color: $mercury;
+  color: $downriver;
   margin-left: 6px;
   font-size: 14px;
   padding: 6px;

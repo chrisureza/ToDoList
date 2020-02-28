@@ -41,6 +41,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/styles/colors.scss";
+
 #app {
   height: 100%;
   width: 100%;
@@ -49,16 +51,21 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(0, 119, 155);
+  background-color: $main-backgroud;
+  color: $Mosque;
 }
 
 .app-container {
-  background-color: whitesmoke;
+  background-color: $light-backgroud;
   height: 80%;
   width: 95%;
   border: 1px solid rgb(182, 182, 182);
   border-radius: 8px;
   padding: 8px;
+
+  h4 {
+    color: $monarch;
+  }
 
   .nav-section {
     height: 72px;
@@ -67,6 +74,12 @@ export default {
 
       .nav-link {
         padding: 6px 8px;
+        color: $monarch;
+
+        &.active {
+          background-color: $monarch;
+          color: $spring-wood;
+        }
       }
     }
   }
