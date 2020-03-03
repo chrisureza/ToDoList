@@ -3,9 +3,9 @@ export const showToast = (context, variant, title, description) => {
     title,
     variant,
     solid: true,
-    autoHideDelay: 1000,
+    autoHideDelay: 2000,
     noHoverPause: true,
     // toaster: 'b-toaster-bottom-right',
-    headerClass: 'd-none'
+    headerClass: "d-none"
   });
 };

@@ -1,11 +1,10 @@
 <template>
   <div class="row add-task-container">
     <div class="col col-9 p-0">
-      <Input
-        :text="toDoText"
+      <b-form-input
+        v-model="toDoText"
         :placeholder="taskPlaceholder"
-        @update-text="value => updateInputText('toDoText', value)"
-      />
+      ></b-form-input>
     </div>
 
     <div class="col col-3 p-0 add-button-container">
@@ -15,7 +14,6 @@
 </template>
 
 <script>
-import Input from "./generic/Input";
 import Button from "./generic/Button";
 import { showToast } from "@/utils/GenericFunctions";
 
@@ -23,7 +21,6 @@ export default {
   name: "AddTask",
   props: {},
   components: {
-    Input,
     Button
   },
   data() {
@@ -38,19 +35,29 @@ export default {
     },
     addTask() {
       /// here should add the task to the store
-      const newTask = {
-        text: this.toDoText,
-        status: "Pending"
-      };
-      this.$store
-        .dispatch("RegisteredTasks/addTask", newTask)
-        .then(() => {
-          showToast(this, "success", "Success", "The task was added");
-        })
-        .catch(error => {
-          showToast(this, "danger", "Error", "The task was not added");
-          console.error(error);
-        });
+      if (this.toDoText.length !== 0) {
+        const newTask = {
+          text: this.toDoText,
+          status: "Pending"
+        };
+        this.$store
+          .dispatch("RegisteredTasks/addTask", newTask)
+          .then(() => {
+            showToast(this, "success", "Success", "The task was added");
+          })
+          .catch(error => {
+            showToast(this, "danger", "Error", "The task was not added");
+            console.error(error);
+          });
+        this.toDoText = "";
+      } else {
+        showToast(
+          this,
+          "danger",
+          "Error",
+          "The task input field is empty, please write the task before adding it"
+        );
+      }
     }
   }
 };

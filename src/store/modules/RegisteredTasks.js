@@ -23,7 +23,7 @@ export default {
 
   mutations: {
     addTask(state, task) {
-      state.registeredTasks.push(task);
+      state.registeredTasks.unshift(task);
     },
     deleteTask(state, taskText) {
       const taskIndex = state.registeredTasks.indexOf(

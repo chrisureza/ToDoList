@@ -37,6 +37,18 @@ export default {
   components: {
     MoreOptionsMenu
   },
+  data() {
+    return {
+      moreOptions: [
+        {
+          text: "Source Code",
+          onClick: () =>
+            (window.location.href =
+              "https://github.com/chrisureza/vue-vuex-todo")
+        }
+      ]
+    };
+  },
   methods: {
     handleScroll(event) {
       if (event.currentTarget.scrollY === 0) {
