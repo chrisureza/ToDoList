@@ -69,6 +69,7 @@ export default {
   margin-right: unset;
   margin-left: unset;
   margin-bottom: 16px;
+  max-width: 480px;
 
   .add-button-container {
     display: flex;

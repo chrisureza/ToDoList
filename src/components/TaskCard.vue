@@ -121,6 +121,11 @@ export default {
   margin-right: 8px;
   margin-left: 8px;
 
+  @media (min-width: 1024px) {
+    width: 324px;
+    display: inline-flex;
+  }
+
   .card-body {
     padding: 0;
 
@@ -133,6 +138,13 @@ export default {
   .buttons-container {
     display: flex;
     justify-content: flex-end;
+  }
+}
+
+.specific-tasks .card-container {
+  @media (min-width: 640px) {
+    min-width: 300px;
+    max-width: 614px;
   }
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
   <div class="tasks-container">
-    <div v-if="tasksToShow !== 'All'">
+    <div class="specific-tasks" v-if="tasksToShow !== 'All'">
       <TasksContainerItem
         :label="tasksToShow"
         :tasks="filteredTasks(tasksToShow)"
       />
     </div>
-    <div v-if="tasksToShow === 'All'">
+    <div class="all-tasks" v-if="tasksToShow === 'All'">
       <TasksContainerItem label="Pending" :tasks="filteredTasks('Pending')" />
       <TasksContainerItem label="Missed" :tasks="filteredTasks('Missed')" />
       <TasksContainerItem
@@ -52,3 +52,32 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.tasks-container {
+  @media (min-width: 640px) {
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+  .all-tasks {
+    @media (min-width: 640px) {
+      display: flex;
+    }
+
+    .tasks-container-item {
+      @media (min-width: 640px) {
+        width: 33.33%;
+      }
+    }
+  }
+}
+
+.specific-tasks .tasks-container {
+  @media (min-width: 640px) {
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+}
+</style>
