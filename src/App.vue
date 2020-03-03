@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <div class="app-container">
       <div class="nav-section">
         <h4>To Do List</h4>
         <b-nav pills class="tasks-navbar">
@@ -21,13 +20,20 @@
       <div class="main-content">
         <router-view />
       </div>
-    </div>
   </div>
 </template>
 
 <script>
 export default {
   methods: {
+    handleScroll (event) {
+      if(event.currentTarget.scrollY === 0){
+        document.querySelector('.nav-section').classList.remove('has-shadow');
+      }
+       else  {
+        document.querySelector('.nav-section').classList.add('has-shadow');
+      }
+    },
     setActiveLink(e) {
       if (e.target.classList.contains("nav-link")) {
         e.currentTarget
@@ -35,7 +41,13 @@ export default {
           .forEach(item => item.classList.remove("active"));
         e.target.classList.add("active");
       }
-    }
+    },
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 };
 </script>
@@ -43,32 +55,36 @@ export default {
 <style lang="scss">
 @import "@/styles/colors.scss";
 
-#app {
+body{
+  background-color: $light-backgroud;
+  position: absolute;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100%;
   width: 100%;
-  position: absolute;
-  overflow: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: $main-backgroud;
-  color: $Mosque;
 }
 
-.app-container {
-  background-color: $light-backgroud;
-  height: 80%;
-  width: 95%;
-  border: 1px solid rgb(182, 182, 182);
-  border-radius: 8px;
-  padding: 8px;
+#app {
+  overflow: none;
+  display: flex;
+  flex-direction: column;
+  color: $Mosque;
 
   h4 {
     color: $monarch;
   }
 
   .nav-section {
-    height: 72px;
+    position: fixed;
+    background-color: $light-backgroud;
+    padding: 10px 16px;
+    height: 92px;
+    width: 100%;
+    z-index: 1;
+
+    &.has-shadow{
+          box-shadow: 0 3px 6px rgba(0,0,0,0.18), 0 3px 6px rgba(0,0,0,0.19);
+    }
+
     .tasks-navbar {
       font-size: 16px;
 
@@ -85,9 +101,9 @@ export default {
   }
 
   .main-content {
-    padding: 12px 0;
+    margin-top:92px;
+    padding: 10px 16px;
     height: calc(100% - 72px);
-    overflow: auto;
   }
 }
 </style>

@@ -79,5 +79,10 @@ export default {
 <style scoped lang="scss">
 .tasks-container {
   padding: 12px 0;
+
+  p{
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
 }
 </style>

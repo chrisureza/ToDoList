@@ -116,7 +116,10 @@ export default {
 <style lang="scss" scoped>
 .card-container {
   padding: 6px !important;
-  margin-bottom: 8px;
+  margin-bottom: 24px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin-right: 8px;
+  margin-left: 8px;
 
   .card-body {
     padding: 0;
