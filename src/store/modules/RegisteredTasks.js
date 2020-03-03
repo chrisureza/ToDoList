@@ -1,7 +1,24 @@
 export default {
   namespaced: true,
   state: {
-    registeredTasks: []
+    registeredTasks: [
+      {
+        text: "Do the laundry",
+        status: "Completed"
+      },
+      {
+        text: "Buy some milk",
+        status: "Missed"
+      },
+      {
+        text: "Pay bills",
+        status: "Completed"
+      },
+      {
+        text: "Pick up my nephew at school",
+        status: "Completed"
+      }
+    ]
   },
 
   mutations: {

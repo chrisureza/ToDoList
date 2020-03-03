@@ -1,12 +1,11 @@
 <template>
   <div class="">
-    <span>Here are the missed tasks:</span>
     <TasksContainer tasksToShow="Missed" noLabel />
   </div>
 </template>
 
 <script>
-import TasksContainer from "@/components/TasksContainer";
+import TasksContainer from "@/components/TasksContainer/TasksContainer";
 
 export default {
   name: "MissedTasks",

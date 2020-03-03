@@ -29,7 +29,7 @@ export default {
 
 .button {
   background: $main-color;
-  border-color: $siren;
+  border: none;
 }
 
 .card-button {

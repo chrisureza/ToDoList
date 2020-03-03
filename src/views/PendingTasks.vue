@@ -1,12 +1,11 @@
 <template>
   <div class="">
-    <span>Here are the pending tasks:</span>
-    <TasksContainer tasksToShow="Pending" noLabel />
+    <TasksContainer tasksToShow="Pending" />
   </div>
 </template>
 
 <script>
-import TasksContainer from "@/components/TasksContainer";
+import TasksContainer from "@/components/TasksContainer/TasksContainer";
 
 export default {
   name: "AllTasks",

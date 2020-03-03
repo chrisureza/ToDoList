@@ -7,7 +7,7 @@
 
 <script>
 import AddTask from "@/components/AddTask";
-import TasksContainer from "@/components/TasksContainer";
+import TasksContainer from "@/components/TasksContainer/TasksContainer";
 
 export default {
   name: "AllTasks",

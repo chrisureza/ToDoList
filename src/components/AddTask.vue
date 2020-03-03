@@ -61,6 +61,7 @@ export default {
 .add-task-container {
   margin-right: unset;
   margin-left: unset;
+  margin-bottom: 16px;
 
   .add-button-container {
     display: flex;
