@@ -34,10 +34,32 @@ export default {
       this[text] = value;
     },
     addTask() {
-      /// here should add the task to the store
-      if (this.toDoText.length !== 0) {
+      const registeredTasks = this.$store.state.RegisteredTasks.registeredTasks;
+      const toDoText = this.toDoText;
+      const isTaskAlreadyAdded = registeredTasks.filter(
+        item => item.text === toDoText
+      ).length;
+
+      if (toDoText.length === 0) {
+        showToast(
+          this,
+          "danger",
+          "Error",
+          "The task input field is empty, please write the task before adding it"
+        );
+      }
+      if (isTaskAlreadyAdded) {
+        showToast(
+          this,
+          "danger",
+          "Error",
+          "The task is already added, please add a diferent task"
+        );
+      }
+
+      if (toDoText.length !== 0 && !isTaskAlreadyAdded) {
         const newTask = {
-          text: this.toDoText,
+          text: toDoText,
           status: "Pending"
         };
         this.$store
@@ -50,13 +72,6 @@ export default {
             console.error(error);
           });
         this.toDoText = "";
-      } else {
-        showToast(
-          this,
-          "danger",
-          "Error",
-          "The task input field is empty, please write the task before adding it"
-        );
       }
     }
   }
